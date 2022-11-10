@@ -21,21 +21,26 @@
   -->
 
 <template>
-	<button v-shortkey="['c']"
+	<NcButton v-shortkey="['c']"
 		class="button primary new-event"
 		@click="newEvent"
 		@shortkey="newEvent">
-		<Plus :size="20" />
+		<template #icon>
+			<Plus :size="20" />
+		</template>
 		{{ $t('calendar', 'New event') }}
-	</button>
+	</NcButton>
 </template>
 
 <script>
 import Plus from 'vue-material-design-icons/Plus.vue'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+
 export default {
 	name: 'AppNavigationHeaderNewEvent',
 	components: {
 		Plus,
+		NcButton,
 	},
 	methods: {
 		/**

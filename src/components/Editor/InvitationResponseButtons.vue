@@ -23,25 +23,25 @@
 <template>
 	<div class="invitation-response-buttons"
 		:class="{ 'invitation-response-buttons--narrow': narrow }">
-		<button v-if="!isAccepted"
+		<NcButton v-if="!isAccepted"
 			class="invitation-response-buttons__button primary"
 			:disabled="loading"
 			@click="accept">
 			{{ t('calendar', 'Accept') }}
-		</button>
-		<button v-if="!isDeclined"
+		</NcButton>
+		<NcButton v-if="!isDeclined"
 			class="invitation-response-buttons__button error"
 			:disabled="loading"
 			@click="decline">
 			{{ t('calendar', 'Decline') }}
-		</button>
+		</NcButton>
 		<template v-if="!isTentative">
-			<button v-if="!narrow"
+			<NcButton v-if="!narrow"
 				class="invitation-response-buttons__button"
 				:disabled="loading"
 				@click="tentative">
 				{{ t('calendar', 'Tentative') }}
-			</button>
+			</NcButton>
 			<Actions v-else>
 				<ActionButton :disabled="loading"
 					@click="tentative">
@@ -58,6 +58,7 @@
 <script>
 import Actions from '@nextcloud/vue/dist/Components/NcActions.js'
 import ActionButton from '@nextcloud/vue/dist/Components/NcActionButton.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import CalendarQuestionIcon from 'vue-material-design-icons/CalendarQuestion.vue'
 import { showError, showSuccess } from '@nextcloud/dialogs'
 import logger from '../../utils/logger.js'
@@ -67,6 +68,7 @@ export default {
 	components: {
 		Actions,
 		ActionButton,
+		NcButton,
 		CalendarQuestionIcon,
 	},
 	props: {

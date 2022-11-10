@@ -76,9 +76,9 @@
 									<Moment class="timestamp" :timestamp="item.deletedAt" />
 								</td>
 								<td class="item-actions">
-									<button @click="restore(item)">
+									<NcButton @click="restore(item)">
 										{{ t('calendar','Restore') }}
-									</button>
+									</NcButton>
 
 									<Actions :force-menu="true">
 										<ActionButton @click="onDeletePermanently(item)">
@@ -95,9 +95,9 @@
 							<p v-if="retentionDuration">
 								{{ n('calendar', 'Items in the trash bin are deleted after {numDays} day', 'Items in the trash bin are deleted after {numDays} days', retentionDuration, { numDays: retentionDuration }) }}
 							</p>
-							<button @click="onEmptyTrashBin()">
+							<NcButton @click="onEmptyTrashBin()">
 								{{ t('calendar','Empty trash bin') }}
-							</button>
+							</NcButton>
 						</div>
 					</template>
 				</div>
@@ -110,6 +110,7 @@
 import AppNavigationItem from '@nextcloud/vue/dist/Components/NcAppNavigationItem.js'
 import Actions from '@nextcloud/vue/dist/Components/NcActions.js'
 import ActionButton from '@nextcloud/vue/dist/Components/NcActionButton.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import Modal from '@nextcloud/vue/dist/Components/NcModal.js'
 import EmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
 import moment from '@nextcloud/moment'
@@ -125,6 +126,7 @@ export default {
 	name: 'Trashbin',
 	components: {
 		AppNavigationItem,
+		NcButton,
 		EmptyContent,
 		Modal,
 		Moment,

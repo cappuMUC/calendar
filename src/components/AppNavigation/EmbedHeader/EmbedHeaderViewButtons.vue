@@ -22,24 +22,29 @@
 
 <template>
 	<div class="view-button-section">
-		<button :class="{primary: isAgendaDayViewSelected}" class="button" @click="view('timeGridDay')">
+		<NcButton :class="{primary: isAgendaDayViewSelected}" class="button" @click="view('timeGridDay')">
 			{{ $t('calendar', 'Day') }}
-		</button>
-		<button :class="{primary: isAgendaWeekViewSelected}" class="button" @click="view('timeGridWeek')">
+		</NcButton>
+		<NcButton :class="{primary: isAgendaWeekViewSelected}" class="button" @click="view('timeGridWeek')">
 			{{ $t('calendar', 'Week') }}
-		</button>
-		<button :class="{primary: isMonthViewSelected}" class="button" @click="view('dayGridMonth')">
+		</NcButton>
+		<NcButton :class="{primary: isMonthViewSelected}" class="button" @click="view('dayGridMonth')">
 			{{ $t('calendar', 'Month') }}
-		</button>
-		<button :class="{primary: isMonthListViewSelected}" class="button" @click="view('listMonth')">
+		</NcButton>
+		<NcButton :class="{primary: isMonthListViewSelected}" class="button" @click="view('listMonth')">
 			{{ $t('calendar', 'List') }}
-		</button>
+		</NcButton>
 	</div>
 </template>
 
 <script>
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+
 export default {
 	name: 'EmbedHeaderViewButtons',
+	components: {
+		NcButton,
+	},
 	computed: {
 		isAgendaDayViewSelected() {
 			return this.selectedView === 'timeGridDay'

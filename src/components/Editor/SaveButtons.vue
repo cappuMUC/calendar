@@ -22,36 +22,41 @@
 
 <template>
 	<div>
-		<button v-if="showMoreButton"
+		<NcButton v-if="showMoreButton"
 			@click="showMore">
 			{{ $t('calendar', 'More') }}
-		</button>
-		<button v-if="showSaveButton"
+		</NcButton>
+		<NcButton v-if="showSaveButton"
 			class="primary"
 			@click="saveThisOnly">
 			{{ $t('calendar', 'Save') }}
-		</button>
-		<button v-if="showUpdateButton"
+		</NcButton>
+		<NcButton v-if="showUpdateButton"
 			class="primary"
 			@click="saveThisOnly">
 			{{ $t('calendar', 'Update') }}
-		</button>
-		<button v-if="showUpdateOnlyThisButton"
+		</NcButton>
+		<NcButton v-if="showUpdateOnlyThisButton"
 			class="primary"
 			@click="saveThisOnly">
 			{{ $t('calendar', 'Update this occurrence') }}
-		</button>
-		<button v-if="showUpdateThisAndFutureButton"
+		</NcButton>
+		<NcButton v-if="showUpdateThisAndFutureButton"
 			:class="{ primary: forceThisAndAllFuture}"
 			@click="saveThisAndAllFuture">
 			{{ $t('calendar', 'Update this and all future') }}
-		</button>
+		</NcButton>
 	</div>
 </template>
 
 <script>
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+
 export default {
 	name: 'SaveButtons',
+	components: {
+		NcButton,
+	},
 	props: {
 		canCreateRecurrenceException: {
 			type: Boolean,

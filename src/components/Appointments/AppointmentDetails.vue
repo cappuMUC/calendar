@@ -55,10 +55,10 @@
 					{{ $t('calendar', 'Could not book the appointment. Please try again later or contact the organizer.') }}
 				</div>
 				<div class="buttons">
-					<button class="button primary"
+					<NcButton class="button primary"
 						@click="save">
 						{{ $t('calendar', 'Book the appointment') }}
-					</button>
+					</NcButton>
 				</div>
 			</div>
 		</div>
@@ -66,6 +66,7 @@
 </template>
 <script>
 import Avatar from '@nextcloud/vue/dist/Components/NcAvatar.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import Modal from '@nextcloud/vue/dist/Components/NcModal.js'
 import autosize from '../../directives/autosize.js'
 
@@ -75,6 +76,7 @@ export default {
 	name: 'AppointmentDetails',
 	components: {
 		Avatar,
+		NcButton,
 		Modal,
 	},
 	directives: {
